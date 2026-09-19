@@ -6,10 +6,9 @@ Este documento es para que nos dividamos el trabajo del proyecto "Nivelador de S
 
 - [ ] **Ingeniero de Datos de Audio:** `[Shiquihno Tovar]`
 - [ ] **Especialista en Machine Learning (KNN):** `[Alessandro Cámara]`
-- [ ] **Especialista en Voz (NLP):** `[Escribe tu nombre aquí]`
-- [ ] **Desarrollador Backend (Volumen/POO):** `[Escribe tu nombre aquí]`
-- [ ] **Desarrollador Full-Stack (Web):** `[Escribe tu nombre aquí]`
-- [ ] **Project Manager y QA:** `[Escribe tu nombre aquí]`
+- [ ] **Especialista en Voz (NLP):** `[Rangel]`
+- [ ] **Desarrollador Backend (Volumen/POO):** `[Carlos Manrique]`
+- [ ] **Desarrollador@ Full-Stack (Web):** `[ Diego Tello ]`
 
 ---
 
