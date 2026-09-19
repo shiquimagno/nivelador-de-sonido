@@ -1,73 +1,94 @@
-# 📌 Asignación de Roles y Tareas (Semana 1)
+# 📌 Asignación de Roles y Tareas
 
-Este documento es para que nos dividamos el trabajo del proyecto "Nivelador de Sonido Dinámico". Escriban su nombre al lado del rol que van a tomar en este archivo.
+Este documento centraliza el trabajo del proyecto "Nivelador de Sonido Dinámico". El proyecto está dividido para 5 integrantes utilizando el paradigma de **Programación Orientada a Objetos (POO)**. Cada integrante será dueño exclusivo de una **Clase (`Class`)** en Python.
 
-## 👥 Roles del Equipo (6 Integrantes)
+## 👥 Equipo y Responsabilidad de Código (POO)
 
-- [ ] **Ingeniero de Datos de Audio:** `[Shiquihno Tovar]`
-- [ ] **Especialista en Machine Learning (KNN):** `[Alessandro Cámara]`
-- [ ] **Especialista en Voz (NLP):** `[Rangel]`
-- [ ] **Desarrollador Backend (Volumen/POO):** `[Carlos Manrique]`
-- [ ] **Desarrollador@ Full-Stack (Web):** `[ Diego Tello ]`
+1. **Ingeniero de Datos (Shiquihno Tovar):** 
+   - **Clase asignada:** `AudioProcessor` (Ubicada en `src/data/audio_processor.py`)
+   - **Responsabilidad:** Leer audio del micrófono, limpiarlo y extraer números (MFCCs).
+2. **Especialista ML/KNN (Alessandro Cámara):**
+   - **Clase asignada:** `NoiseClassifier` (Ubicada en `src/ml/knn_model.py`)
+   - **Responsabilidad:** Entrenar el algoritmo KNN y predecir en qué entorno estamos.
+3. **Especialista Voz/NLP (Rangel):**
+   - **Clase asignada:** `VoiceListener` (Ubicada en `src/voice/voice_recognizer.py`)
+   - **Responsabilidad:** Escuchar micrófono en paralelo y reconocer comandos verbales.
+4. **Desarrollador Backend (Carlos Manrique):**
+   - **Clase asignada:** `VolumeController` (Ubicada en `src/core/volume_controller.py`)
+   - **Responsabilidad:** Alterar el volumen general de Windows de manera progresiva.
+5. **Desarrollador Full-Stack (Diego Tello):**
+   - **Clase asignada:** `WebApp` (Ubicada en `src/web/app.py`)
+   - **Responsabilidad:** Crear la interfaz web visual (HTML/CSS) y el servidor (Flask).
 
 ---
 
 ## 🚀 Primeras Misiones Individuales (Semana 1)
-Una vez asignados los nombres, esta es la tarea de investigación y prueba que cada uno debe completar esta semana para poder arrancar con el código fuerte la siguiente:
 
-### Ingeniero de Datos
-- [ ] Descargar el dataset **"ESC-50"** (es un dataset público y gratuito de audios para machine learning).
-- [ ] Investigar cómo instalar y usar la librería `librosa` de Python para leer un archivo de audio `.wav`.
+*   **Shiquihno:** Descargar el dataset **"ESC-50"** e investigar cómo instalar y usar la librería `librosa`.
+*   **Alessandro:** Investigar la clase `KNeighborsClassifier` de `scikit-learn`.
+*   **Rangel:** Instalar las librerías `SpeechRecognition` y `PyAudio`, y probar que capten su voz.
+*   **Carlos:** Investigar la librería `pycaw` para controlar volumen de Windows mediante código.
+*   **Diego:** Instalar `Flask` y lograr levantar una página web "Hola Mundo" en `localhost:5000`.
 
-### Especialista ML (KNN)
-- [ ] Investigar la documentación oficial de `scikit-learn` en Python, específicamente la clase `KNeighborsClassifier`. Entender qué parámetros necesita para clasificar datos.
+---
 
-### Especialista en Voz
-- [ ] Instalar en tu computadora las librerías `SpeechRecognition` y `PyAudio` (comando: `pip install SpeechRecognition pyaudio`).
-- [ ] Escribir un pequeño script de 10 líneas que capture tu voz por el micrófono de la laptop y la imprima como texto en la consola.
+## 🗓️ Cronograma General Enfocado en POO (Semanas 2 a 8)
 
-### Desarrollador Backend
-- [ ] Investigar cómo subir o bajar el volumen de Windows usando un script de Python (Librería recomendada para investigar: `pycaw`).
-- [ ] Hacer un pequeño script de prueba aislado que cambie el volumen de la PC.
+### 📅 Semana 2: Constructores y Métodos Básicos
+*   **Shiquihno:** Programar el método `__init__()` y `extract_features(audio_path)` en su clase `AudioProcessor`.
+*   **Alessandro:** Programar el método `train_model(dataset)` en su clase `NoiseClassifier`.
+*   **Rangel:** Programar el método `listen_for_commands()` en su clase `VoiceListener`.
+*   **Carlos:** Programar el método `set_system_volume(nivel)` en su clase `VolumeController`.
+*   **Diego:** Diseñar la maqueta web en HTML (carpeta `src/web/templates/`) y conectarla a Flask.
 
-### Desarrollador Full-Stack
-- [ ] Instalar el framework web `Flask` (`pip install Flask`).
-- [ ] Escribir un archivo `app.py` básico que al ejecutarlo levante una página web en blanco que diga "Sistema de Audio" en `localhost:5000`.
+### 📅 Semana 3: Lógica Avanzada (El cerebro y los músculos)
+*   **Shiquihno:** Crear método para procesar audio "en vivo" desde el micrófono.
+*   **Alessandro:** Ajustar hiperparámetros del KNN y crear método `predict(audio_features)`.
+*   **Rangel:** Añadir un filtro para que `VoiceListener` evite el ruido de fondo (método `adjust_for_ambient_noise()`).
+*   **Carlos:** Programar el método complejo `smooth_volume_transition(target_level)` para que el cambio no aturda (ej. Subir volumen en 5 segundos mediante un bucle).
+*   **Diego:** Crear botones interactivos en la web que envíen peticiones al servidor web.
 
-## 🗓️ Cronograma General y Tareas (Semanas 2 a 8)
+### 📅 Semana 4: Integración Parcial
+*   **Shiquihno + Alessandro:** Instanciar sus clases juntas. Que un Objeto `AudioProcessor` le mande las características en vivo al Objeto `NoiseClassifier` para que decida qué ambiente es.
+*   **Rangel + Carlos:** Conectar comandos de voz: Si el Objeto `VoiceListener` escucha "Bajar Volumen", que llame al método del Objeto `VolumeController`.
 
-### 📅 Semana 2: Procesamiento y Pruebas Iniciales
-*   **Ing. de Datos:** Escribir el script en Python para leer los audios del dataset y extraer sus características matemáticas (MFCCs).
-*   **Especialista ML:** Cargar los datos limpios y hacer el primer entrenamiento básico del modelo KNN.
-*   **Especialista Voz:** Crear un script que entienda 3 comandos básicos clave (ej. "Subir", "Bajar", "Pausar").
-*   **Desarrollador Backend:** Programar la lógica base para controlar el volumen en Windows (`pycaw`).
-*   **Desarrollador Full-Stack:** Diseñar el boceto de la interfaz web (HTML/CSS) y conectarlo con su servidor Flask.
-*   **Project Manager/QA:** Validar que los scripts iniciales de todos funcionen bien por separado y subirlos a la carpeta `src/`.
-
-### 📅 Semana 3: Algoritmos y Ajustes
-*   **Ing. de Datos:** Optimizar la extracción matemática para que el programa trabaje rápido y sin retraso en tiempo real.
-*   **Especialista ML:** Ajustar el valor de "K" y otros parámetros del modelo para subir el porcentaje de precisión de la IA.
-*   **Especialista Voz:** Implementar filtros para que la voz se entienda correctamente a pesar de que haya ruido de fondo.
-*   **Desarrollador Backend:** Programar el algoritmo "Anti-Estruendos" (subida gradual de volumen 20% -> 80% en 5 segundos).
-*   **Desarrollador Full-Stack:** Crear botones interactivos en la web que le envíen instrucciones al backend (AJAX).
-*   **Project Manager/QA:** Iniciar redacción de Capítulos 1 y 2 del informe académico.
-
-### 📅 Semana 4: Integraciones Clave
-*   **Ing. Datos + Especialista ML:** Conectar el micrófono en vivo al modelo KNN para que la PC escuche y clasifique el ruido sola cada cierto tiempo.
-*   **Especialista Voz + Backend:** Conectar los comandos de voz hablados para que interactúen con el control de volumen real de la PC.
-*   **Desarrollador Full-Stack:** Hacer que la página web muestre en la pantalla lo que la PC está escuchando (ej. *"Estado: Ducha detectada"*).
-
-### 📅 Semana 5: Ensamblaje Total (POO)
-*   **Todo el equipo:** Convertir su código en Clases (Programación Orientada a Objetos) y unirlo en un solo archivo principal `main.py` bajo la coordinación del Project Manager. El sistema ya debe poder escuchar voz y analizar ruidos simultáneamente usando Hilos (Multithreading).
+### 📅 Semana 5: Ensamblaje Total (El Archivo main.py)
+*   **Todo el equipo:** Trabajar en el archivo central `src/main.py`. Aquí se importarán y crearán los 5 Objetos:
+    ```python
+    procesador = AudioProcessor()
+    ia_knn = NoiseClassifier()
+    oido_voz = VoiceListener()
+    control_volumen = VolumeController()
+    interfaz = WebApp()
+    ```
+    Se usarán **Hilos (`threading`)** para que el servidor web, el KNN y el escuchador de voz funcionen al mismo tiempo sin que la aplicación se "cuelgue".
 
 ### 📅 Semana 6: Pruebas de Estrés (Testing)
-*   **Todo el equipo:** Poner a prueba el sistema reproduciendo música fuerte y ruidos falsos (ej. audios de youtube de gritos o agua) para cazar y documentar errores. Corregir cualquier bug encontrado.
-*   **Desarrollador Full-Stack:** Validar que la interfaz web sea responsiva y se pueda manejar cómodamente desde el celular.
+*   **Todo el equipo:** Correr `main.py` en vivo. Reproducir música real en Spotify e intentar simular duchas o ruidos fuertes. Cazar bugs, afinar el modelo KNN y asegurar que todo fluya.
 
-### 📅 Semana 7: Documentación Académica
-*   **Todo el equipo:** Redactar la parte técnica correspondiente en el informe (Capítulo 4 de Implementación y 5 de Resultados) explicando el código de cada uno.
-*   **Project Manager/QA:** Compilar el documento, darle formato APA y redactar las conclusiones.
+### 📅 Semana 7: Documentación Académica (El Informe)
+*   **Carlos y Shiquihno:** Redactar Capítulos 1, 2 y 3 (Introducción, Metodología, Arquitectura y Clases).
+*   **Todos:** Redactar su parte técnica en el Capítulo 4 (Implementación), pegando fragmentos de sus Clases y explicando su lógica de POO.
+*   **Diego y Alessandro:** Redactar Capítulos 5 y 6 (Pruebas, Capturas de la Interfaz Web, Precisión del KNN y Conclusiones).
 
 ### 📅 Semana 8: Entrega Final
-*   **Todo el equipo:** Ensayar las 8 diapositivas del PPT. 
-*   **Project Manager/QA:** Entrega oficial del código final en GitHub y del informe en PDF para el profesor.
+*   **Rangel:** Liderar la creación de las 8 diapositivas PPT extrayendo lo mejor del informe.
+*   **Todos:** Ensayar PPT, revisar que el código esté limpio en GitHub y entregar PDF del informe.
+
+---
+
+## 📚 Recursos y Documentación Oficial (Links Clave)
+
+Para acelerar el desarrollo, aquí tienen los links oficiales de las herramientas que cada uno debe dominar:
+
+*   **Ing. de Datos (Shiquihno):** 
+    *   Dataset ESC-50: [GitHub de ESC-50](https://github.com/karolpiczak/ESC-50)
+    *   Tutorial Librosa (Extracción MFCC): [Librosa Feature Extraction](https://librosa.org/doc/latest/feature.html)
+*   **Especialista ML (Alessandro):** 
+    *   Documentación de KNN: [Scikit-learn KNeighborsClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
+*   **Voz (Rangel):** 
+    *   Documentación de Voz: [SpeechRecognition PyPI](https://pypi.org/project/SpeechRecognition/)
+*   **Backend (Carlos):** 
+    *   Controlar audio en Windows: [PyCaw GitHub](https://github.com/AndreMiras/pycaw)
+*   **Full-Stack (Diego):** 
+    *   Tutorial Flask: [Flask Quickstart](https://flask.palletsprojects.com/en/3.0.x/quickstart/)
